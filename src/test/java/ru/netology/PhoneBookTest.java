@@ -29,4 +29,15 @@ public class PhoneBookTest {
         assertEquals("Bob", phoneBook.findByNumber("67890"));
         assertNull(phoneBook.findByNumber("99999")); // несуществующий номер
     }
+
+    @Test
+    public void testFindByName() {
+        PhoneBook phoneBook = new PhoneBook();
+        phoneBook.add("Alice", "12345");
+        phoneBook.add("Bob", "67890");
+
+        assertEquals("12345", phoneBook.findByName("Alice"));
+        assertEquals("67890", phoneBook.findByName("Bob"));
+        assertNull(phoneBook.findByName("Charlie")); // несуществующее имя
+    }
 }
