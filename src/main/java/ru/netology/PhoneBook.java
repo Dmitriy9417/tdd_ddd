@@ -30,6 +30,8 @@ public class PhoneBook {
     }
 
     public void printAllNames() {
-        //заглушка печати
+        for (String name : names) {
+            System.out.println(name);
+        }
     }
 }
