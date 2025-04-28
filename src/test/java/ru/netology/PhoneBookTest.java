@@ -5,8 +5,7 @@ import org.junit.Test;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
+import static org.junit.Assert.*;
 
 public class PhoneBookTest {
     @Test
@@ -51,11 +50,15 @@ public class PhoneBookTest {
         phoneBook.add("Alice", "12345");
         phoneBook.add("Charlie", "54321");
 
-        // Проверяем порядок вывода
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outContent));
+
         phoneBook.printAllNames();
-        String output = outContent.toString().trim();
-        assertEquals("Alice\nBob\nCharlie", output);
+
+        // Разбиваем вывод на строки и сравниваем по отдельности
+        String[] expected = {"Alice", "Bob", "Charlie"};
+        String[] actual = outContent.toString().split(System.lineSeparator());
+
+        assertArrayEquals(expected, actual);
     }
 }

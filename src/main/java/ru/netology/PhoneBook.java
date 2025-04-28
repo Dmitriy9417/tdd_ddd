@@ -20,6 +20,7 @@ public class PhoneBook {
 
         return nameToNumber.size();
     }
+
     public String findByNumber(String number) {
         return numberToName.get(number);
     }
@@ -27,7 +28,8 @@ public class PhoneBook {
     public String findByName(String name) {
         return nameToNumber.get(name);
     }
+
     public void printAllNames() {
-        // пустая реализация
+        //заглушка печати
     }
 }
